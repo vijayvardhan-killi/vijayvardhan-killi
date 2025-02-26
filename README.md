@@ -28,6 +28,8 @@
 
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=vijayvardhan-killi&theme=dark)
 
+![GitHub Streak](https://streak-stats.demolab.com/?user=vijayvardhan-killi&theme=dark)
+
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=vijayvardhan-killi&theme=dark)
 
 
