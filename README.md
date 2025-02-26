@@ -24,7 +24,7 @@
 
 ## 📈 **GitHub Stats**
 
-![Vijaya Vardhan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=vijaya-vardhan-killi&show_icons=true&theme=dark)
+![Vijaya Vardhan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=vijay-vardhan-killi&show_icons=true&theme=dark)
 
 ![GitHub Streak](https://streak-stats.demolab.com/?user=vijay-vardhan-killi&theme=dark)
 
