@@ -1,16 +1,36 @@
-## Hi there 👋
+# 👋 Hi, I'm Vijaya Vardhan Killi!
 
-<!--
-**vijayvardhan-killi/vijayvardhan-killi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🚀 **Aspiring Software Developer** | **CS Engineering Student**  
+💡 Passionate about **Web Development, AI, and Cloud Computing**  
+📚 Currently learning **React, Django, and System Design**  
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🔥 **Tech Stack**
+- **Languages**: Python, JavaScript, Kotlin , Java 
+- **Frontend**: React, HTML, CSS, Tailwind  
+- **Backend**: Django,SQL  
+- **Cloud & DevOps**: Render, Docker, Git  
+
+---
+
+## 📌 **Featured Projects**
+
+| Project | Tech Stack | Repo |
+|---------|-----------|------|
+| **YouTube Duration App** | React, API ,Django| [Repo](https://github.com/vijayvardhan-killi/Youtube-Playlist-Duration-Checker) |
+
+---
+
+## 📈 **GitHub Stats**
+
+![Vijaya Vardhan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=vijaya-vardhan-killi&show_icons=true&theme=dark)
+
+![GitHub Streak](https://streak-stats.demolab.com/?user=vijay-vardhan-killi&theme=dark)
+
+---
+
+## 📫 **Connect with Me**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/vijaya-vardhan-killi)  
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?style=flat&logo=github)](https://github.com/vijaya-vardhan-killi)
