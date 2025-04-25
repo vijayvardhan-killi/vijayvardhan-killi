@@ -19,6 +19,7 @@
 | Project | Tech Stack | Repo |
 |---------|-----------|------|
 | **YouTube Duration App** | React, API, Django | [Repo](https://github.com/vijayvardhan-killi/Youtube-Playlist-Duration-Checker) |
+| **ColorGen** | React, Flask ,Scikit-learn | [Repo](https://github.com/vijayvardhan-killi/ColorGen) |
 
 ---
 
