@@ -28,6 +28,11 @@
 ![Vijaya Vardhan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=vijayvardhan-killi&show_icons=true&theme=dark)
 
 
+<!--  PROFILES VIEWS -->
+🌱 **Profile Views**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![visitors](https://profile-counter.glitch.me/vijayvardhan-killi/count.svg?align=center)
+
+
 
 
 
