@@ -28,9 +28,18 @@
 ![Vijaya Vardhan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=vijayvardhan-killi&show_icons=true&theme=dark)
 
 
+<!--  TOP LANGUAGES STATISTICS -->
+ [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=vijayvardhan-killi&theme=dark&layout=compact&align=right&width=40%)](https://github.com/anuraghazra/github-readme-stats)
+ 
+ ---
+
+
+
 <!--  PROFILES VIEWS -->
 🌱 **Profile Views**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![visitors](https://profile-counter.glitch.me/vijayvardhan-killi/count.svg?align=center)
+
+
 
 
 
