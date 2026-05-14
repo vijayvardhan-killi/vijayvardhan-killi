@@ -31,6 +31,7 @@
   <img src="https://skillicons.dev/icons?i=c" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=cpp" height="50"/>&nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=rust" height="50"/>&nbsp;&nbsp;
+  <img src="https://skillicons.dev/icons?i=go" height="50"/>&nbsp;&nbsp;
 </p>
 
 
