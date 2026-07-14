@@ -1,112 +1,108 @@
-<h1 align="center">Hey 👋, I'm Vijaya Vardhan Killi</h1>
-<h3 align="center">CS Undergrad | Full-Stack Developer | Problem Solver 🚀</h3>
+<div align="center">
 
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:2C5364,100:00BFFF&height=260&section=header&text=VIJAYA%20VARDHAN%20KILLI&fontSize=46&fontColor=ffffff&fontAlignY=34&animation=twinkling&desc=CS%20Undergrad%20%C2%B7%20Full-Stack%20Developer%20%C2%B7%20Problem%20Solver&descAlignY=54&descSize=17" width="100%"/>
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1200&color=00BFFF&center=true&vCenter=true&width=700&lines=Always+learning+something+new.;Passionate+about+building+with+purpose.;Coding+real-world+solutions+every+day." />
-</p>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=26&duration=2800&pause=900&color=00BFFF&center=true&vCenter=true&width=650&lines=Always+learning+something+new;Building+with+purpose%2C+not+hype;Turning+ideas+into+working+code" />
 
+<br/>
 
+<img src="https://skillicons.dev/icons?i=linkedin,gmail,github&theme=dark" height="42"/>
+<br/>
+<a href="https://www.linkedin.com/in/vijaya-vardhan-killi/">LinkedIn</a> ·
+<a href="mailto:vijayvardhan.killi@gmail.com">Email</a> ·
+<a href="https://github.com/vijayvardhan-killi">GitHub</a>
 
----
+</div>
 
-### 🧠 About Me
+<br/>
 
-- 🎓 CS student passionate about **web dev**, **cloud**, and **AI experiments**.
-- 🛠️ Currently learning **React**, **Django**, and **System Design**.
-- 💡 Believe in *“learning by building”* – code is my playground.
-- 📈 Improving through LeetCode, Codeforces, and real-world projects.
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=2&width=100%"/>
 
----
+<img align="right" width="380" src="https://raw.githubusercontent.com/vijayvardhan-killi/vijayvardhan-killi/output/github-contribution-grid-snake-dark.svg" />
 
-### 🚀 Tech Stack
+## ⟡ About Me
 
-#### 💻 Languages
+```yaml
+whoami:
+  role: "CS Undergraduate"
+  focus: ["Web Development", "Cloud", "AI Experiments"]
+  currently_learning: ["React", "Django", "System Design"]
+  philosophy: "Learning by building — code is my playground"
+  grinding_on: ["LeetCode", "Codeforces", "Real-world projects"]
+```
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=js" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=java" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=kotlin" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=c" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=cpp" height="50"/>&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=rust" height="50"/>&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=go" height="50"/>&nbsp;&nbsp;
-</p>
+<br clear="right"/>
 
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=2&width=100%"/>
 
+## ⟡ Tech Arsenal
 
-#### 🎨 Frontend
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=react" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=html" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=css" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=tailwind" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=bootstrap" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=sass" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-</p>
+<div align="center">
 
-#### 🛠️ Backend & Tools
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=django" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=flask" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=fastapi" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=mysql" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=expressjs" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=mongodb" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=docker" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=postman" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=git" height="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-</p>
+<img src="https://skillicons.dev/icons?i=python,js,java,kotlin,c,cpp,rust,go&theme=dark" /><br/><br/>
+<img src="https://skillicons.dev/icons?i=react,html,css,tailwind,bootstrap,sass&theme=dark" /><br/><br/>
+<img src="https://skillicons.dev/icons?i=django,flask,fastapi,mysql,expressjs,mongodb,docker,postman,git&theme=dark" />
 
----
+</div>
 
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=2&width=100%"/>
 
-### 📌 Featured Projects
+## ⟡ Featured Projects
 
-| 💡 Project | 🧠 Description | 🛠️ Tech Stack | 🔗 Links |
-|-----------|----------------|------------------------------|-----------|
-| **ColorGen** | Generate color palettes using AI models trained on color theory and user inputs. | ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat)&nbsp;![Flask](https://img.shields.io/badge/-Flask-000000?logo=flask&logoColor=white&style=flat)&nbsp;![Scikit-learn](https://img.shields.io/badge/-Scikit--learn-F7931E?logo=scikitlearn&logoColor=white&style=flat) | [Repo](https://github.com/vijayvardhan-killi/ColorGen) |
-| **Road Reporting System** | Report damaged roads with location & photo, dashboard for authorities. | ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat)&nbsp;![Express.js](https://img.shields.io/badge/-Express.js-000000?logo=express&logoColor=white&style=flat)&nbsp;![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white&style=flat) | [Repo](https://github.com/vijayvardhan-killi/Road-Reporting-System) |
-| **ToDo CLI in Rust** | Lightweight command-line todo tracker built in Rust. | ![Rust](https://img.shields.io/badge/-Rust-000000?logo=rust&logoColor=white&style=flat) | [Repo](https://github.com/vijayvardhan-killi/todo-rust-cli) |
-| **Renewable Energy Awareness Chatbot** | RAG-powered chatbot answering renewable energy questions from PDFs. | ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat)&nbsp;![FastAPI](https://img.shields.io/badge/-FastAPI-009688?logo=fastapi&logoColor=white&style=flat)&nbsp;![Langchain](https://img.shields.io/badge/-LangChain-000000?logo=chainlink&logoColor=white&style=flat) | [Repo](https://github.com/vijayvardhan-killi/Renewable-Energy-Awareness-Chatbot-Backend) |
-| **YouTube Duration App** | Calculate total duration of a playlist using the YouTube API. | ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat)&nbsp;![Django](https://img.shields.io/badge/-Django-092E20?logo=django&logoColor=white&style=flat)&nbsp;![REST API](https://img.shields.io/badge/-REST%20API-FF6F00?style=flat) | [Repo](https://github.com/vijayvardhan-killi/YouTube-Duration-App) |
+<div align="center">
 
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=vijayvardhan-killi&repo=ColorGen&theme=tokyonight&hide_border=true" width="47%" />
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=vijayvardhan-killi&repo=Road-Reporting-System&theme=tokyonight&hide_border=true" width="47%" />
 
----
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=vijayvardhan-killi&repo=Renewable-Energy-Awareness-Chatbot-Backend&theme=tokyonight&hide_border=true" width="47%" />
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=vijayvardhan-killi&repo=YouTube-Duration-App&theme=tokyonight&hide_border=true" width="47%" />
 
-### 📊 GitHub Stats
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=vijayvardhan-killi&repo=todo-rust-cli&theme=tokyonight&hide_border=true" width="47%" />
 
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=vijayvardhan-killi&show_icons=true&theme=tokyonight&rank_icon=percentile&hide=stars&count_private=true" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=vijayvardhan-killi&layout=compact&langs_count=8&theme=tokyonight" />
-</p>
+</div>
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=2&width=100%"/>
 
+## ⟡ GitHub Analytics
 
-### 🌍 Connect with Me
+<div align="center">
 
-<p align="center">
-  <a href="https://www.linkedin.com/in/vijaya-vardhan-killi/">
-    <img src="https://skillicons.dev/icons?i=linkedin" height="40" />&nbsp;&nbsp;&nbsp;&nbsp;
-  </a>
-  <a href="https://github.com/vijayvardhan-killi">
-    <img src="https://skillicons.dev/icons?i=github" height="40" />&nbsp;&nbsp;&nbsp;&nbsp;
-  </a>
-  <a href="mailto:vijayvardhan.killi@gmail.com">
-    <img src="https://skillicons.dev/icons?i=gmail" height="40" />&nbsp;&nbsp;&nbsp;&nbsp;
-  </a>
-</p>
+<img width="49%" src="https://github-readme-stats.vercel.app/api?username=vijayvardhan-killi&show_icons=true&theme=tokyonight&rank_icon=percentile&hide=stars&count_private=true&border_radius=10" />
+<img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=vijayvardhan-killi&layout=compact&langs_count=8&theme=tokyonight&border_radius=10" />
 
----
+<br/>
 
-<p align="center">
-  <b>👀 Visitor Count</b><br /><br />
-  <img src="https://profile-counter.glitch.me/vijayvardhan-killi/count.svg" />
-</p>
+<img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=vijayvardhan-killi&theme=tokyo-night&hide_border=true&area=true" />
 
+<br/>
 
----
+<img width="98%" src="https://github-readme-streak-stats.herokuapp.com/?user=vijayvardhan-killi&theme=tokyonight&border_radius=10" />
 
+<br/>
 
+<img src="https://github-profile-trophy.vercel.app/?username=vijayvardhan-killi&theme=tokyonight&no-frame=true&row=1&column=7&margin-w=8" />
+
+<br/>
+
+<img width="98%" src="https://raw.githubusercontent.com/vijayvardhan-killi/vijayvardhan-killi/output/profile-night-rainbow.svg" />
+
+</div>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=2&width=100%"/>
+
+## ⟡ Let's Connect
+
+<div align="center">
+
+I'm always up for talking shop on **system design, AI tooling, or the next side project.**
+Reach out — my inbox is open.
+
+<img src="https://skillicons.dev/icons?i=linkedin,github,gmail&theme=dark" height="50" />
+
+<br/><br/>
+
+<img src="https://profile-counter.glitch.me/vijayvardhan-killi/count.svg" />
+
+</div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:2C5364,100:00BFFF&height=120&section=footer&width=100%"/>
