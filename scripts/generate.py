@@ -141,6 +141,8 @@ ASCII_ART = """"
 
 """
 
+ASCII_ART = ASCII_ART.splitlines()
+
 def build_svg(s, mode="dark"):
     if mode == "dark":
         bg = "#161b22"
