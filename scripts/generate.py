@@ -1,5 +1,5 @@
 """
-Neofetch-style GitHub profile SVG — modeled on Andrew6rant/Andrew6rant.
+Neofetch-style GitHub profile SVG.
 Computes REAL stats by querying the GitHub API and cloning public repos
 to sum commits + lines of code, same technique the original uses.
 
@@ -54,17 +54,14 @@ def fetch_contributions_this_year():
     )
     with urllib.request.urlopen(req) as r:
         html = r.read().decode()
-    # GitHub states the total directly, e.g. "80\n contributions\n in the last year"
     m = re.search(r'(\d[\d,]*)\s*\n\s*contributions?\s*\n\s*in the last year', html)
     if m:
         return int(m.group(1).replace(",", ""))
-    # fallback: older markup summed per-day data-count attributes
     counts = re.findall(r'data-count="(\d+)"', html)
     return sum(int(c) for c in counts)
 
 
 def clone_and_measure(repos):
-    """Clone each non-fork public repo and sum commits + LOC diff totals."""
     total_commits = 0
     total_add = 0
     total_del = 0
@@ -111,42 +108,49 @@ def dots(label_len, value_col=30):
     return " " + ("." * n) + " "
 
 
-ASCII_ART = """"
 
-⣿⣿⣷⣭⣤⣤⡾⣿⣦⣤⣴⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠖⣠⠞⢹⣿⣿⡿⠛⡇⠀⠉⢻⡿⣿⣦⣘⡷⠀⣧⠀⢳⠀⢹⡍⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠋⣠⣾⠁⠀⢸⡿⠋⠀⠀⡇⠀⠀⠀⣧⠀⠈⣧⠀⠀⢸⡄⠸⡆⠀⢧⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⢁⣴⣿⡇⠀⡴⠋⡇⠀⠀⠀⣷⠀⠀⠀⢹⡄⠀⢸⡄⠀⠈⣇⠀⢷⠀⠸⣾⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣿⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⢁⣴⣿⣿⣿⡧⠞⠀⠀⣇⠀⠀⠀⢻⠀⠀⠀⠘⣇⠀⠀⢷⠀⠀⣻⣄⠸⢷⣀⠈⠛⠮⣝⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⡿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣠⠴⠺⢭⣿⣿⣿⣿⣇⠀⠀⠀⣿⠀⠀⠀⢸⡄⠀⢀⣀⣻⣤⠄⠘⠻⣍⠉⠙⠳⣄⡈⠓⢤⣀⠈⠙⠲⢭⣛⠿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⡿⠋⠁⢀⣴⣿⡿⠟⣡⠟⠁⠉⠉⣱⠟⠛⣿⡟⠛⠻⣍⠁⠀⠀⠈⠳⢦⡀⠈⠓⢦⣀⠀⠙⠳⣤⣈⠛⠦⣄⡀⠉⠙⢲⢾⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⢞⣿⡿⠋⠀⠀⣠⣾⡿⠋⣠⠞⠁⠀⠀⢀⡾⠃⠀⣴⠃⠙⣆⠀⠈⠳⣄⡀⠀⠀⠀⠉⠳⣤⡀⠈⠳⢦⣀⠀⠙⠳⢤⣄⣙⣷⣔⣭⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⣠⠴⢋⣴⠟⠁⠀⠀⣤⣾⠟⠁⢀⠞⠁⠀⠀⠀⣴⠋⠀⠀⡼⠁⠀⠀⠈⠳⣄⠀⠈⠙⢦⣀⠀⠀⠀⠀⠙⠷⣤⣀⣉⣷⣤⢔⣒⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⢀⡤⠚⣡⣾⠿⣁⣀⠀⣠⠿⠋⠀⢀⡴⠁⠀⠀⠀⢀⡞⠁⠀⠀⡼⠁⠀⠀⠀⠀⠀⣈⣷⣶⡾⢿⣿⣧⣤⡭⢭⡭⠥⠾⠿⡟⠛⡏⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⣠⠔⠉⣠⣾⣿⣿⣶⣦⣬⣿⣷⣦⣤⣴⣋⠀⠀⠀⠀⣰⠏⠀⠀⢀⡾⠁⠀⠀⣀⣤⣶⣿⣷⣿⣇⣘⠛⢛⣣⣽⡇⢸⠀⠀⡷⠀⡇⠀⡇⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠁⣠⣾⣿⣿⣿⡿⣟⣫⡞⠀⠀⡏⢉⠛⠒⢯⣍⣑⣺⣷⣶⣶⣶⣾⠐⣲⣾⣿⠟⠋⠁⣄⢿⠻⢿⣿⣿⣿⣿⣿⣿⣾⠀⠀⣿⢸⡇⢠⠟⡖⣄⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⣤⣾⣿⣿⣿⣿⣿⣿⠟⠉⠀⢀⠀⡇⠘⡄⢠⠸⡀⠉⠙⠛⠿⠿⠿⠿⣿⢫⡿⢹⠳⣄⠀⢿⡿⣧⠀⠈⠉⠉⠉⠀⣸⡿⣤⠀⣿⠀⣧⢸⠀⠹⣽⣷⣽⣿⣿⣿⣿⣿⣿⣿⣿
-⣴⣿⣿⣿⣿⣿⣿⣿⣿⠋⠀⠀⢀⡞⢨⠙⣄⠁⢸⣷⣣⠀⠀⠀⠀⠑⠶⣄⡐⠋⠀⣼⠀⠈⢳⡈⣿⠈⠓⠀⠀⠀⠀⠀⠁⡇⡾⣸⠛⢦⣟⢿⡆⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⠛⠉⠉⠉⠉⢻⣿⡏⣀⣤⣶⠟⠀⠈⠀⣌⢿⣆⢹⣻⢧⡀⠀⠀⠀⠀⠈⠙⠳⢄⣻⠀⡆⠀⠹⣼⠀⠀⠀⠀⠀⠀⠀⠀⣧⣷⠋⠀⠈⢻⡄⠙⠀⠀⠀⢀⣩⣿⣿⣿⣿⣿⣿⣿
-⣿⠀⠀⠀⠀⠀⢸⣿⣷⡿⠟⠁⠀⠀⢀⣼⡇⢀⡏⠦⣽⣧⣙⠆⠀⠀⠀⠀⠀⠀⠀⢻⡀⢇⡀⠀⠃⠀⠀⠀⠀⠀⠀⠀⣼⡟⠁⠀⠀⣀⣀⠓⠐⠒⢶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⠀⠀⠀⠀⠀⢸⣿⠙⠋⠛⠙⠋⠉⢹⡟⢀⣾⡆⠀⡌⢻⣏⠉⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠀⠀⠀⠀⢀⣠⡴⠀⢀⣼⡟⠁⢦⣄⣀⢀⣀⣩⣷⣶⣤⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⠀⠀⠀⠀⠀⡘⣿⠀⠀⠀⠀⢀⣴⣟⣴⣿⣿⠀⣼⠃⣽⡏⠙⢦⠀⠈⠑⢒⡒⠒⠉⠉⢉⣉⣉⣉⣩⠍⠀⠀⣠⠎⢹⣞⢦⣀⡙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠛⠛⠒⠶⢄⣀⢁⣿⡀⠂⠀⠀⠙⠋⠉⢸⣿⣧⠾⢻⣸⡿⣿⣀⠀⠑⢤⠀⠀⠈⠉⠙⠫⣍⠀⠀⠀⠀⠀⣠⠞⠁⠀⡏⣾⡌⡏⠉⢻⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠈⠉⠻⢶⣤⣤⣄⣴⣶⣤⢸⣿⠇⢀⣸⣿⣧⣹⣟⡆⠀⠀⠑⣄⠀⠀⠀⠀⠈⠳⡄⠀⢀⡾⠁⠀⠀⢸⣳⠇⣿⠇⠀⢺⣇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠀⠀⠈⢉⣿⡿⠛⠁⢀⣽⣿⣿⡶⠟⣿⢯⣿⡟⣿⣻⡀⠀⠀⠈⠳⣄⠀⠀⠀⢀⣷⣴⠋⠀⠀⠀⠀⣾⡏⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⡾⠋⠀⠀⢀⣾⣿⡿⠁⠀⢀⣿⠸⣿⡷⠟⡇⢳⠀⠀⠀⠀⠈⠓⠒⠒⠛⠋⠀⠀⠀⠀⠀⢰⣿⣧⡀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⡇⠀⠀⠈⢿⠀⢿⣇⠀⢸⠈⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⣗⢻⣿⣦⠀⠀⢸⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⠇⠀⠀⠀⢸⡆⠸⣿⡀⢸⠀⠈⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣧⡏⠘⣿⣿⣷⣤⣸⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠾⣿⣿⣿⣿⠀⠀⠀⠀⠘⡇⠀⢻⣧⠀⠀⠀⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣼⡇⠀⢸⣿⣿⡎⣷⡉⠻⢿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⣿⠀⠈⣿⣆⠀⠀⠀⠈⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⠇⠀⢸⣿⣿⣿⣼⣇⠀⠀⠈⠙⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-
+ASCII_ART_RAW = r"""
+⠀⠀⠈⠒⠛⠛⢁⠀⠙⠛⠋⢁⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢋⣩⠟⣡⡆⠀⠀⢀⣤⢸⣿⣶⡄⢀⠀⠙⠧⢈⣿⠘⣿⡌⣿⡆⢲⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⣴⠟⠁⣾⣿⡇⢀⣴⣿⣿⢸⣿⣿⣿⠘⣿⣷⠘⣿⣿⡇⢻⣇⢹⣿⡘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⣡⡾⠋⠀⢸⣿⢋⣴⢸⣿⣿⣿⠈⣿⣿⣿⡆⢻⣿⡇⢻⣿⣷⠸⣿⡈⣿⣇⠁⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⣡⡾⠋⠀⠀⠀⢘⣡⣿⣿⠸⣿⣿⣿⡄⣿⣿⣿⣧⠸⣿⣿⡈⣿⣿⠄⠻⣇⡈⠿⣷⣤⣑⠢⢀⠀⠀⠀⠀⠀⠀
+⢀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠟⣋⣅⡒⠀⠀⠀⠀⠸⣿⣿⣿⠀⣿⣿⣿⡇⢻⣿⡿⠿⠄⠛⣻⣧⣄⠲⣶⣦⣌⠻⢷⣬⡛⠿⣷⣦⣍⡒⠤⣀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠁⢀⣴⣾⡿⠋⠀⢀⣠⠞⣠⣾⣶⣶⠎⣠⣤⠀⢠⣤⣄⠲⣾⣿⣿⣷⣌⡙⢿⣷⣬⡙⠿⣿⣦⣌⠛⠷⣤⣙⠻⢿⣶⣦⡍⡁
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⡡⠀⢀⣴⣿⣿⠟⠁⢀⣴⠟⣡⣾⣿⣿⡿⢁⣼⣿⠋⣼⣦⠹⣿⣷⣌⠻⢿⣿⣿⣿⣶⣌⠛⢿⣷⣌⡙⠿⣿⣦⣌⡛⠻⠦⠈⠫⠒⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⠟⣋⡴⠋⣠⣾⣿⣿⠛⠁⣠⣾⡿⣡⣾⣿⣿⣿⠋⣴⣿⣿⢃⣾⣿⣿⣷⣌⠻⣿⣷⣦⡙⠿⣿⣿⣿⣿⣦⣈⠛⠿⠶⠈⠛⡫⠭⠆⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⡿⢛⣥⠞⠁⣀⠾⠿⣿⠟⣀⣴⣿⡿⢋⣾⣿⣿⣿⡿⢡⣾⣿⣿⢃⣾⣿⣿⣿⣿⣿⠷⠈⠉⢁⡀⠀⠘⠛⢒⡒⢒⣚⣁⣀⢠⣤⢰⣆⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⠟⣫⣶⠟⠁⠀⠀⠉⠙⠓⠀⠈⠙⠛⠋⠴⣿⣿⣿⣿⠏⣰⣿⣿⡿⢁⣾⣿⣿⠿⠛⠉⠀⠈⠀⠸⠧⣤⡤⠜⠂⢸⡇⣿⣿⢈⣿⢸⣿⢸⣿⡄⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣾⠟⠁⠀⠀⠀⢀⠠⠔⢡⣿⣿⢰⡶⣤⣭⡐⠲⠮⠅⠈⠉⠉⠉⠁⣯⠍⠁⠀⣠⣴⣾⠻⡀⣄⡀⠀⠀⠀⠀⠀⠀⠁⣿⣿⠀⡇⢸⡟⣠⢩⠻⡄⠀⠀⠀⠀⠀
+⣿⣿⠛⠁⠀⠀⠀⠀⠀⠀⣠⣶⣿⡿⣿⢸⣧⢻⡟⣇⢿⣶⣦⣤⣀⣀⣀⣀⠀⡔⢀⡆⣌⠻⣿⡀⢀⠘⣿⣷⣶⣶⣶⣿⠇⢀⠛⣿⠀⣿⠘⡇⣿⣆⠂⠈⠂⠀⠀⠀⠀
+⠋⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⡿⢡⡗⣦⠻⣾⡇⠈⠜⣿⣿⣿⣿⣮⣉⠻⢯⣴⣿⠃⣿⣷⡌⢷⠀⣷⣬⣿⣿⣿⣿⣿⣾⢸⢁⠇⣤⡙⠠⡀⢹⣿⣦⡀⠀⠀⠀⠀⠀
+⠀⣤⣶⣶⣶⣶⡄⠀⢰⠿⠛⠉⣠⣿⣷⣿⠳⡀⠹⡆⠄⡘⢿⣿⣿⣿⣿⣷⣦⣌⡻⠄⣿⢹⣿⣆⠃⣿⣿⣿⣿⣿⣿⣿⣿⠘⠈⣴⣿⣷⡄⢻⣦⣿⣿⣿⡿⠖⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⡇⠀⠈⢀⣠⣾⣿⣿⡿⠃⢸⡿⢰⣙⠂⠘⠦⣹⣿⣿⣿⣿⣿⣿⣿⡄⢿⡸⢿⣿⣼⣿⣿⣿⣿⣿⣿⣿⠃⢠⣾⣿⣿⠿⠿⣬⣯⣭⡉⠁⠀⠀⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⡇⠀⣦⣴⣤⣦⣴⣶⡆⢠⡿⠁⢹⣿⢳⡄⠰⣶⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⣿⣿⣿⣿⡿⠟⢋⣿⡿⠃⢠⣾⡙⠻⠿⡿⠿⠖⠈⠉⠛⠆⠀⠀⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⢧⠀⣿⣿⣿⣿⡿⠋⠠⠋⠀⠀⣿⠃⣼⠂⢰⣦⡙⣿⣷⣮⡭⢭⣭⣶⣶⡶⠶⠶⠶⠖⣲⣿⣿⠟⣱⡆⠡⡙⠿⢦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣤⣤⣭⣉⡻⠿⡾⠀⢿⣽⣿⣿⣦⣴⣶⡇⠀⠘⣁⡄⠇⢀⠀⠿⣿⣮⡛⣿⣿⣷⣶⣦⣔⠲⣿⣿⣿⣿⣿⠟⣡⣾⣿⢰⠁⢳⢰⣶⡄⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣷⣶⣄⡉⠛⠛⠻⠋⠉⠛⡇⠀⣸⡿⠇⠀⠘⠆⠠⢹⣿⣿⣮⠻⣿⣿⣿⣿⣷⣌⢻⣿⡿⢁⣾⣿⣿⡇⠌⣸⠀⣸⣿⡅⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣷⡶⠀⢀⣤⣾⡿⠂⠀⠀⢉⣠⠀⡐⠀⢠⠀⠄⢿⣿⣿⣷⣌⠻⣿⣿⣿⡿⠈⠋⣴⣿⣿⣿⣿⠁⢰⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⢁⣴⣿⣿⡿⠁⠀⢀⣾⣿⡿⠀⣇⠀⢈⣠⢸⡌⣿⣿⣿⣿⣷⣬⣭⣭⣤⣴⣿⣿⣿⣿⣿⡏⠀⠘⢿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⢸⣿⣿⣷⡀⣿⡀⠸⣿⡇⣷⡘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢡⠨⡄⠀⠙⣿⣿⡇⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⣸⣿⣿⣿⡇⢹⣇⠀⢿⡇⣿⣷⡘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠘⢰⣧⠀⠀⠈⠛⠇⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣁⠀⠀⠀⠀⣿⣿⣿⣿⣧⢸⣿⡄⠘⣿⣿⣿⣷⡹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠃⢸⣿⡇⠀⠀⢱⠈⢶⣄⡀⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⣿⣿⣿⣿⣿⠀⣿⣷⠀⠹⣿⣿⣿⣷⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⣸⣿⡇⠀⠀⠀⠃⠸⣿⣿⣷⣦⣤⣀⠀⠀⠀⠀⠀
 """
 
-ASCII_ART = ASCII_ART.splitlines()
+
+ASCII_ART = ASCII_ART_RAW.strip("\n").splitlines()
+
+
+LOGO = [
+    "   █   █ █    █ ▄▀▀▄ ▀▄ ▄▀  ",
+    "    █ █  █ ▄  █ █▀▀█   █    ",
+    "     ▀   ▀  ▀▀  ▀  ▀   ▀    ",
+]
 
 def build_svg(s, mode="dark"):
     if mode == "dark":
         bg = "#161b22"
-        ascii_color = "#7ee787"
+        ascii_color = "#c9d1d9"
         key_color = "#ffa657"
         value_color = "#a5d6ff"
         cc_color = "#616e7f"
@@ -156,7 +160,7 @@ def build_svg(s, mode="dark"):
         footer_color = "#30363d"
     else:
         bg = "#ffffff"
-        ascii_color = "#1a7f37"
+        ascii_color = "#57606a"
         key_color = "#953800"
         value_color = "#0969da"
         cc_color = "#8c959f"
@@ -166,14 +170,14 @@ def build_svg(s, mode="dark"):
         footer_color = "#d0d7de"
 
     rows = [
-        ("header", "vijay@github", None),
+        ("header", "vijayvardhan-killi", None),
         ("rule", None, None),
         ("kv", "Status", "Fresh Graduate, open to work"),
         ("kv", "Degree", "B.Tech, Computer Science"),
         ("kv", "Editor", "VS Code"),
         ("blank", None, None),
-        ("kv2", "Languages.Programming", "Python, Java, JS, C, C++, Rust, Go, Kotlin"),
-        ("kv2", "Languages.Web", "React, Django, FastAPI, Flask, Express"),
+        ("kv", "Languages.Programming", "Python, Java, JS, C, C++, Rust, Go, Kotlin"),
+        ("kv", "Languages.Web", "React, Django, FastAPI, Flask, Express"),
         ("kv", "Looking for", "SDE / Full-Stack roles"),
         ("blank", None, None),
         ("header2", "- Contact -", None),
@@ -187,48 +191,77 @@ def build_svg(s, mode="dark"):
         ("stat3", None, None),
     ]
 
-    text_rows_height = 40 + len(rows) * 20 + 30
-    ascii_height = 34 + len(ASCII_ART) * 20 + 20
-    svg_h = max(text_rows_height, ascii_height)
+    # --- layout constants ---
+    main_font = 15
+    line_h = 20
+    ascii_font = 6          # small font so the dense braille art reads as an image
+    ascii_line_h = 8        # tight line-height to keep the art compact/undistorted
+    ascii_char_w = ascii_font * 0.62
+
+    max_art_chars = max((len(l) for l in ASCII_ART), default=0)
+    ascii_block_w = max_art_chars * ascii_char_w
+    ascii_block_h = len(ASCII_ART) * ascii_line_h
+
+    left_margin = 20
+    x0 = left_margin + ascii_block_w + 60   # info column starts after the art + gutter
+
+    text_rows_height = 40 + len(rows) * line_h + 30
+    svg_h = max(text_rows_height, ascii_block_h + 60)
+    svg_w = int(x0 + 650)
+
     p = []
+    
     p.append(
-        f'<svg xmlns="http://www.w3.org/2000/svg" font-family="Consolas,Menlo,monospace" '
-        f'width="1180px" height="{svg_h}px" font-size="15px">'
+        f'<svg xmlns="http://www.w3.org/2000/svg" font-family="Consolas,Menlo,monospace"  '
+        f'width="{svg_w}px" height="{svg_h}px" font-size="{main_font}px">'
     )
     p.append(
         f"<style>.key{{fill:{key_color};}} .value{{fill:{value_color};}} .addColor{{fill:{add_color};}} "
         f".delColor{{fill:{del_color};}} .cc{{fill:{cc_color};}} .hd{{fill:{hd_color};font-weight:bold;}} "
         "text,tspan{white-space:pre;}</style>"
     )
-    p.append(f'<rect width="1180px" height="{svg_h}px" fill="{bg}" rx="15"/>')
+    p.append(f'<rect width="{svg_w}px" height="{svg_h}px" fill="{bg}" rx="15"/>')
 
-    y = 34
-    p.append(f'<text x="20" y="{y}" fill="{ascii_color}">')
+    # ascii art column — small font, tight leading, so it reads as a dense image
+    y = 100
+    p.append(
+        f'<text x="{left_margin}" y="{y}" fill="{ascii_color}" '
+        f'font-size="{ascii_font}px" '
+        f'font-family="Segoe UI Symbol, Noto Sans Symbols, Apple Symbols, Consolas, Menlo, monospace">'
+    )
     for line in ASCII_ART:
-        p.append(f'<tspan x="20" y="{y}">{line}</tspan>')
-        y += 20
+        p.append(f'<tspan x="{left_margin}" y="{y}">{line}</tspan>')
+        y += ascii_line_h
     p.append("</text>")
 
-    x0 = 400
+    logo_y = y + 18
+
+    p.append(
+        f'<text x="{left_margin}" y="{logo_y}" '
+        f'fill="{ascii_color}" '
+        f'font-size="15px" '
+        f'font-family="Consolas, Menlo, monospace">'
+    )
+
+    for line in LOGO:
+        p.append(f'<tspan x="{left_margin}" y="{logo_y}">{line}</tspan>')
+        logo_y += 20
+
+    p.append("</text>")
+
+
+
+    # info column
     y = 34
     p.append(f'<text x="{x0}" y="{y}">')
     for kind, key, val in rows:
-        if kind == "header":
-            p.append(f'<tspan x="{x0}" y="{y}" class="hd">{key}</tspan>')
-        elif kind == "header2":
+        if kind in ("header", "header2"):
             p.append(f'<tspan x="{x0}" y="{y}" class="hd">{key}</tspan>')
         elif kind == "rule":
             p.append(f'<tspan x="{x0}" y="{y}" class="cc">' + "-" * 46 + "</tspan>")
         elif kind == "blank":
             pass
         elif kind == "kv":
-            p.append(
-                f'<tspan x="{x0}" y="{y}" class="cc">. </tspan>'
-                f'<tspan class="key">{key}</tspan><tspan class="cc">:</tspan>'
-                f'<tspan class="cc">{dots(len(key)+1)}</tspan>'
-                f'<tspan class="value">{val}</tspan>'
-            )
-        elif kind == "kv2":
             p.append(
                 f'<tspan x="{x0}" y="{y}" class="cc">. </tspan>'
                 f'<tspan class="key">{key}</tspan><tspan class="cc">:</tspan>'
@@ -258,10 +291,10 @@ def build_svg(s, mode="dark"):
                 f' ( <tspan class="addColor">{s["add"]}++</tspan>, '
                 f'<tspan class="delColor">{s["del"]}--</tspan> )'
             )
-        y += 20
+        y += line_h
     p.append("</text>")
     p.append(
-        f'<text x="1180" y="{svg_h-10}" fill="{footer_color}" font-size="10px" text-anchor="end">'
+        f'<text x="{svg_w}" y="{svg_h-10}" fill="{footer_color}" font-size="10px" text-anchor="end">'
         f'last updated {datetime.utcnow().strftime("%Y-%m-%d")}</text>'
     )
     p.append("</svg>")
@@ -299,6 +332,33 @@ def main():
         with open(out, "w") as f:
             f.write(svg)
         print("wrote", out)
+
+
+# def main():
+#     # Dummy values for local testing
+#     s = {
+#         "repos": 18,
+#         "followers": 42,
+#         "stars": 137,
+#         "contributions": 1268,
+#         "commits": 894,
+#         "add": "145,382",
+#         "del": "38,914",
+#         "loc": "106,468",
+#     }
+
+#     import os
+
+#     output_dir = os.path.dirname(os.path.abspath(__file__))
+
+#     for mode in ("dark", "light"):
+#         svg = build_svg(s, mode)
+#         output = os.path.join(output_dir, f"{mode}_mode.svg")
+
+#         with open(output, "w", encoding="utf-8") as f:
+#             f.write(svg)
+
+#         print(f"Generated {output}")
 
 
 if __name__ == "__main__":
